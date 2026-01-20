@@ -18,13 +18,8 @@ a { text-decoration: none; }
 .section:nth-of-type(odd) { background: #fff; }
 .section:nth-of-type(even) { background: #fff6f8; }
 
-.section-title { text-align: center; margin-bottom: 40px; }
-.section-title h2 { font-size: 26px; color: var(--main-dark); }
-
-/* ▼ 飛び先が隠れないようにする ▼ */
-section {
-  scroll-margin-top: 120px;
-}
+/* 飛び先が隠れないように */
+section { scroll-margin-top: 120px; }
 
 /* BUTTONS */
 .btn-primary, .btn-line {
@@ -47,10 +42,7 @@ section {
 }
 .btn-line:hover { background: #00a600; }
 
-.line-icon {
-  width: 20px;
-  height: 20px;
-}
+.line-icon { width: 20px; height: 20px; }
 
 /* CONTACT用 LINEボタン */
 .btn-line2 {
@@ -70,11 +62,22 @@ section {
 }
 
 /* HEADER */
-header { background: #fff; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 10; }
-.header-inner { display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; }
+header {
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+}
 .logo img { height: 82px; }
 
-/* ▼ PCタブナビ ▼ */
+/* PCナビ */
 .nav-pc ul {
   display: flex;
   gap: 24px;
@@ -88,12 +91,12 @@ header { background: #fff; border-bottom: 1px solid var(--border); position: sti
   padding: 8px 0;
 }
 
-/* ▼ スマホではPCナビ非表示 ▼ */
+/* スマホではPCナビ非表示 */
 @media (max-width: 1024px) {
   .nav-pc { display: none; }
 }
 
-/* ▼ ハンバーガー ▼ */
+/* ハンバーガー */
 .hamburger {
   width: 28px;
   height: 22px;
@@ -109,17 +112,23 @@ header { background: #fff; border-bottom: 1px solid var(--border); position: sti
   border-radius: 3px;
 }
 
-/* ▼ スマホでハンバーガー表示 ▼ */
-@media (max-width: 768px) {
+/* スマホでハンバーガー表示 */
+@media (max-width: 1024px) {
   .hamburger { display: flex; }
 }
 
-/* ▼ スマホメニュー ▼ */
+/* スマホメニュー */
 .nav-sp {
   display: none;
   background: #fff;
   border-top: 1px solid var(--border);
 }
+
+/* ▼ ここが最重要修正ポイント ▼ */
+.nav-sp.open {
+  display: block !important;
+}
+
 .nav-sp ul {
   list-style: none;
   padding: 0;
@@ -138,12 +147,27 @@ header { background: #fff; border-bottom: 1px solid var(--border); position: sti
   background: linear-gradient(120deg, #f7dce4, #f3b9c9);
   padding: 60px 0;
 }
-.hero-inner { display: flex; flex-wrap: wrap; gap: 32px; align-items: center; }
+.hero-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  align-items: center;
+}
 .hero-main { flex: 1 1 320px; }
-.hero-title span { font-size: 28px; font-weight: 700; display: block; color: var(--main-dark); }
+.hero-title span {
+  font-size: 28px;
+  font-weight: 700;
+  display: block;
+  color: var(--main-dark);
+}
 .hero-badges .badge {
-  display: inline-block; padding: 4px 10px; border-radius: 999px;
-  background: #fff; border: 1px solid var(--border); margin-right: 6px; font-size: 12px;
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #fff;
+  border: 1px solid var(--border);
+  margin-right: 6px;
+  font-size: 12px;
 }
 
 .hero-sub {
@@ -154,7 +178,6 @@ header { background: #fff; border-bottom: 1px solid var(--border); position: sti
   box-shadow: 0 8px 18px rgba(0,0,0,.1);
   text-align: center;
 }
-
 .hero-phone-number a {
   font-size: 24px;
   font-weight: 700;
@@ -162,13 +185,19 @@ header { background: #fff; border-bottom: 1px solid var(--border); position: sti
 }
 
 /* REASON & SERVICE */
-.reason-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+.reason-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
 .reason-item {
-  background: #fff; border-radius: 10px; padding: 18px;
-  border: 1px solid var(--border); text-align: center;
+  background: #fff;
+  border-radius: 10px;
+  padding: 18px;
+  border: 1px solid var(--border);
+  text-align: center;
 }
 
-/* SERVICE IMAGE */
 .service-image {
   width: 100%;
   border-radius: 10px;
@@ -234,11 +263,6 @@ header { background: #fff; border-bottom: 1px solid var(--border); position: sti
   font-weight: 700;
   color: var(--main);
 }
-.price-notes {
-  margin-top: 20px;
-  font-size: 14px;
-  color: #555;
-}
 
 /* FLOW */
 .flow-card .flow-num {
@@ -249,10 +273,19 @@ header { background: #fff; border-bottom: 1px solid var(--border); position: sti
 }
 
 /* AREA */
-.area-inner { display: flex; flex-wrap: wrap; gap: 28px; align-items: center; }
+.area-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  align-items: center;
+}
 .area-map {
-  flex: 1 1 260px; background: var(--light); padding: 20px;
-  border-radius: 12px; text-align: center; color: #555;
+  flex: 1 1 260px;
+  background: var(--light);
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  color: #555;
 }
 .area-list { flex: 1 1 320px; }
 
@@ -277,11 +310,7 @@ header { background: #fff; border-bottom: 1px solid var(--border); position: sti
   font-size: 15px;
 }
 
-/* お急ぎの方へ（中央揃え） */
-.contact-info {
-  text-align: center;
-}
-
+.contact-info { text-align: center; }
 .contact-phone a {
   font-size: 24px;
   font-weight: 700;
@@ -297,4 +326,3 @@ footer {
   font-size: 14px;
   color: #555;
 }
-
