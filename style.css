@@ -124,7 +124,7 @@ header {
   border-top: 1px solid var(--border);
 }
 
-/* ▼ ここが最重要修正ポイント ▼ */
+/* ▼ 最重要：スマホメニュー開閉 */
 .nav-sp.open {
   display: block !important;
 }
@@ -310,11 +310,40 @@ header {
   font-size: 15px;
 }
 
-.contact-info { text-align: center; }
+/* ▼ v1.011 追加：お急ぎの方へ中央揃え */
+.contact-info {
+  text-align: center;
+}
+
 .contact-phone a {
   font-size: 24px;
   font-weight: 700;
   color: var(--main);
+}
+
+/* ▼ v1.012 追加：メディア掲載 */
+.media-box {
+  display: grid;
+  gap: 28px;
+  margin-top: 20px;
+}
+.media-item {
+  background: #fff;
+  border: 1px solid var(--border);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.06);
+}
+.media-item h3 {
+  margin-top: 0;
+  color: var(--main-dark);
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.media-item p {
+  margin: 0;
+  font-size: 15px;
+  color: #444;
 }
 
 /* FOOTER */
