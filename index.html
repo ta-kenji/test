@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <title>東海遺品整理士｜岐阜・愛知の遺品整理ならお任せください</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="岐阜県全域・愛知一部対応の遺品整理サービス。遺品整理士在籍・即日対応・女性スタッフ在籍・供養対応。遺品整理・生前整理・特殊清掃・ゴミ屋敷整理・ハウスクリーニング・不要品整理・車両手続きまでワンストップ対応。">
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -12,16 +11,49 @@
 
 <header>
   <div class="header-inner">
+
     <div class="logo">
       <img src="logo.png" alt="東海遺品整理ロゴ">
     </div>
-    <div class="header-contact">
-      <div>岐阜県全域・愛知一部対応｜遺品整理士在籍</div>
-      <div class="header-phone">TEL：090-8851-3337</div>
-      <div>24時間受付・見積り無料</div>
+
+    <!-- PC用ナビ -->
+    <nav class="nav-pc">
+      <ul>
+        <li><a href="#reason">選ばれる理由</a></li>
+        <li><a href="#service">サービス</a></li>
+        <li><a href="#price">料金案内</a></li>
+        <li><a href="#flow">流れ</a></li>
+        <li><a href="#contact">お問い合わせ</a></li>
+      </ul>
+    </nav>
+
+    <!-- スマホ用ハンバーガー -->
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
     </div>
+
   </div>
+
+  <!-- スマホメニュー -->
+  <nav class="nav-sp" id="nav-sp">
+    <ul>
+      <li><a href="#reason">選ばれる理由</a></li>
+      <li><a href="#service">サービス</a></li>
+      <li><a href="#price">料金案内</a></li>
+      <li><a href="#flow">流れ</a></li>
+      <li><a href="#contact">お問い合わせ</a></li>
+    </ul>
+  </nav>
 </header>
+
+<script>
+  const ham = document.getElementById("hamburger");
+  const nav = document.getElementById("nav-sp");
+
+  ham.addEventListener("click", () => {
+    nav.style.display = nav.style.display === "block" ? "none" : "block";
+  });
+</script>
 
 <main>
 
@@ -50,15 +82,20 @@
       <div class="hero-sub">
         <h3>まずは無料相談・無料お見積り</h3>
         <p>お電話・LINEからお気軽にご相談ください。</p>
+
         <div class="hero-sub-phone">
           <div class="sub-small">お急ぎの方はこちら</div>
-          <div class="hero-phone-number">090-8851-3337</div>
+          <div class="hero-phone-number">
+            <a href="tel:09088513337">090-8851-3337</a>
+          </div>
           <div class="sub-small">24時間受付</div>
         </div>
 
         <div class="hero-buttons">
           <a href="#contact" class="btn-primary">メールで無料見積り</a>
-          <a href="#contact" class="btn-line">LINEで簡単相談</a>
+          <a href="#contact" class="btn-line">
+            <img src="line-icon.svg" class="line-icon" alt=""> LINEで簡単相談
+          </a>
         </div>
 
       </div>
@@ -132,7 +169,7 @@
     </div>
   </section>
 
-  <!-- SERVICE（8つすべて画像カード化） -->
+  <!-- SERVICE -->
   <section class="section" id="service">
     <div class="wrap">
       <div class="section-title">
@@ -165,7 +202,6 @@
           <p>専門技術が必要な現場にも対応。</p>
         </div>
 
-        <!-- ★ 修正箇所：ハウスクリーニング → 家財・残置物整理 -->
         <div class="reason-item">
           <h3>家財・残置物整理</h3>
           <img src="box-image5.jpg" alt="家財・残置物整理イメージ" class="service-image">
@@ -193,6 +229,7 @@
       </div>
     </div>
   </section>
+
   <!-- PRICE -->
   <section class="section" id="price">
     <div class="wrap">
@@ -217,53 +254,6 @@
         <p>※表は概算料金です。回収する不用品の量や、現場や建物の状況によって料金は変動いたします。</p>
         <p>※訪問見積もり後、作業料金・内訳を提示します。以降の追加料金は発生いたしません。</p>
         <p>※記載のない間取りも対応可能ですので、相談ください。</p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- MEDIA -->
-  <section class="section" id="media">
-    <div class="wrap">
-
-      <div class="media-box-title">【 メディア掲載実績 】</div>
-
-      <div class="media-item">
-        <h3>2025年10月「ホンマでっか!?TV」にて、遺品整理士認定協会の理事が終活の専門家として出演。</h3>
-        <p>
-          2025年に放送された「ホンマでっか!?TV【終活SP】」では、
-          遺品整理士認定協会の理事が専門家として出演し、
-          終活における注意点や最新事情について解説しました。<br><br>
-
-          番組内では、
-          「スマホのログインパスワードを家族に共有していないと、
-          20万〜50万円の費用が発生する可能性がある」
-          といったデジタル遺品に関する問題や、
-          相続にまつわるトラブルなど、現代ならではの課題が紹介されました。<br><br>
-
-          遺品整理の現場でも、デジタル遺品や事前準備の重要性は年々高まっています。
-          当社では、こうした最新の終活事情も踏まえ、
-          ご家族の負担を最小限にするための丁寧なサポートを心がけています。
-        </p>
-      </div>
-
-      <div class="media-item">
-        <h3>2023年1月 テレビ朝日系ドラマ「星降る夜に」にて、遺品整理士が主人公として登場。</h3>
-        <p>
-          テレビ朝日系ドラマ「星降る夜に」では、
-          遺品整理士が主人公の一人として登場し、
-          故人の想いとご遺族の気持ちに寄り添う専門職として描かれました。<br><br>
-
-          ドラマの中では、遺品整理士が
-          「命のはじまりと終わりに寄り添う仕事」として表現され、
-          単なる片付けではなく、
-          “思い出の整理”や“心の整理”をお手伝いする存在であることが
-          丁寧に描かれています。<br><br>
-
-          当社も同じ想いを大切にし、
-          一つひとつの遺品に敬意を払いながら、
-          ご遺族の気持ちに寄り添った整理を行っています。
-        </p>
       </div>
 
     </div>
@@ -370,9 +360,13 @@
           <h3>お急ぎの方へ</h3>
           <p>お電話のほうが早くご案内できます。</p>
 
-          <div class="contact-phone">090-8851-3337</div>
+          <div class="contact-phone">
+            <a href="tel:09088513337">090-8851-3337</a>
+          </div>
 
-          <a href="#" class="btn-line contact-line-btn">LINEで相談する</a>
+          <a href="https://lin.ee/xxxxxxx" class="btn-line2" target="_blank">
+            <img src="line-icon.svg" class="line-icon" alt=""> LINEで相談する
+          </a>
 
           <p>24時間受付・年中無休</p>
         </div>

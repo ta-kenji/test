@@ -2,9 +2,9 @@
 *, *::before, *::after { box-sizing: border-box; }
 body { margin: 0; font-family: "Noto Sans JP", sans-serif; line-height: 1.7; background: #fff6f8; color: #333; }
 img { max-width: 100%; height: auto; display: block; }
-a { color: inherit; text-decoration: none; }
+a { text-decoration: none; }
 
-/* COLOR THEME */
+/* THEME COLORS */
 :root {
   --main: #c46a85;
   --main-dark: #a0526b;
@@ -20,23 +20,118 @@ a { color: inherit; text-decoration: none; }
 
 .section-title { text-align: center; margin-bottom: 40px; }
 .section-title h2 { font-size: 26px; color: var(--main-dark); }
-.tagline { font-size: 12px; color: #777; letter-spacing: .2em; }
+
+/* ▼ 飛び先が隠れないようにする ▼ */
+section {
+  scroll-margin-top: 120px;
+}
 
 /* BUTTONS */
 .btn-primary, .btn-line {
-  display: inline-block; padding: 12px 24px; border-radius: 999px;
-  font-size: 15px; font-weight: 600; text-align: center;
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: center;
 }
 .btn-primary { background: var(--main); color: #fff; }
 .btn-primary:hover { background: var(--main-dark); }
-.btn-line { background: #00c300; color: #fff; }
+
+.btn-line {
+  background: #00c300;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
 .btn-line:hover { background: #00a600; }
+
+.line-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* CONTACT用 LINEボタン */
+.btn-line2 {
+  display: block;
+  background: #00c300;
+  color: #fff;
+  padding: 16px 0;
+  text-align: center;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
 
 /* HEADER */
 header { background: #fff; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 10; }
 .header-inner { display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; }
 .logo img { height: 82px; }
-.header-phone { font-size: 18px; font-weight: 700; color: var(--main); }
+
+/* ▼ PCタブナビ ▼ */
+.nav-pc ul {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.nav-pc a {
+  color: var(--main-dark);
+  font-weight: 600;
+  padding: 8px 0;
+}
+
+/* ▼ スマホではPCナビ非表示 ▼ */
+@media (max-width: 768px) {
+  .nav-pc { display: none; }
+}
+
+/* ▼ ハンバーガー ▼ */
+.hamburger {
+  width: 28px;
+  height: 22px;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+.hamburger span {
+  display: block;
+  height: 3px;
+  background: var(--main-dark);
+  border-radius: 3px;
+}
+
+/* ▼ スマホでハンバーガー表示 ▼ */
+@media (max-width: 768px) {
+  .hamburger { display: flex; }
+}
+
+/* ▼ スマホメニュー ▼ */
+.nav-sp {
+  display: none;
+  background: #fff;
+  border-top: 1px solid var(--border);
+}
+.nav-sp ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.nav-sp li a {
+  display: block;
+  padding: 16px;
+  border-bottom: 1px solid var(--border);
+  color: var(--main-dark);
+  font-weight: 600;
+}
 
 /* HERO */
 .hero {
@@ -51,7 +146,6 @@ header { background: #fff; border-bottom: 1px solid var(--border); position: sti
   background: #fff; border: 1px solid var(--border); margin-right: 6px; font-size: 12px;
 }
 
-/* hero-sub */
 .hero-sub {
   flex: 1 1 260px;
   background: #fff;
@@ -61,15 +155,11 @@ header { background: #fff; border-bottom: 1px solid var(--border); position: sti
   text-align: center;
 }
 
-.hero-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  margin-top: 12px;
+.hero-phone-number a {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--main);
 }
-
-.hero-phone-number { font-size: 24px; font-weight: 700; color: var(--main); }
-.sub-small { font-size: 12px; color: #777; }
 
 /* REASON & SERVICE */
 .reason-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
@@ -86,24 +176,19 @@ header { background: #fff; border-bottom: 1px solid var(--border); position: sti
 }
 
 /* PROBLEM */
-.problem-section {
-  background: #fdf2f5;
-}
-
+.problem-section { background: #fdf2f5; }
 .problem-title h2 {
   background: #fff;
   display: inline-block;
   padding: 6px 20px;
   border-radius: 6px;
 }
-
 .problem-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
   margin-bottom: 20px;
 }
-
 .problem-item {
   background: #fff;
   border-radius: 12px;
@@ -112,18 +197,12 @@ header { background: #fff; border-bottom: 1px solid var(--border); position: sti
   box-shadow: 0 8px 18px rgba(0,0,0,.06);
   text-align: center;
 }
-
 .problem-icon {
   width: 100%;
   max-width: 140px;
   margin: 0 auto 12px;
 }
-
-.problem-text {
-  font-size: 15px;
-  color: #444;
-}
-
+.problem-text { font-size: 15px; color: #444; }
 .problem-solution-center {
   text-align: center;
   font-weight: 700;
@@ -159,41 +238,6 @@ header { background: #fff; border-bottom: 1px solid var(--border); position: sti
   margin-top: 20px;
   font-size: 14px;
   color: #555;
-}
-
-/* MEDIA */
-.media-box-title {
-  font-size: 22px;
-  font-weight: 700;
-  text-align: center;
-  padding: 14px 0;
-  border: 2px solid var(--main);
-  border-radius: 8px;
-  background: #fff;
-  color: var(--main-dark);
-  margin-bottom: 40px;
-}
-
-.media-item {
-  background: #fff;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 24px;
-  margin-bottom: 32px;
-  box-shadow: 0 6px 14px rgba(0,0,0,0.06);
-}
-
-.media-item h3 {
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--main-dark);
-  margin-bottom: 12px;
-}
-
-.media-item p {
-  font-size: 15px;
-  color: #444;
-  line-height: 1.8;
 }
 
 /* FLOW */
@@ -233,27 +277,15 @@ header { background: #fff; border-bottom: 1px solid var(--border); position: sti
   font-size: 15px;
 }
 
-/* ★ v1.007：中央揃えを CSS に統一 */
+/* お急ぎの方へ（中央揃え） */
 .contact-info {
-  flex: 1 1 260px;
-  background: #fff;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 20px;
   text-align: center;
 }
 
-.contact-line-btn {
-  display: block;
-  margin: 12px 0;
-  text-align: center;
-}
-
-.contact-phone {
-  font-size: 26px;
+.contact-phone a {
+  font-size: 24px;
   font-weight: 700;
   color: var(--main);
-  margin: 10px 0;
 }
 
 /* FOOTER */
