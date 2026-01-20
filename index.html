@@ -233,25 +233,22 @@
   </div>
 </footer>
 
-<!-- ▼ LINEブラウザ対応：touchstart 追加済みJS -->
+<!-- ▼ LINEブラウザ対応：touchend を追加した最終版JS -->
 <script>
   const ham = document.getElementById("hamburger");
   const nav = document.getElementById("nav-sp");
 
-  const toggleMenu = (e) => {
-    e.preventDefault();
+  const toggleMenu = () => {
     nav.classList.toggle("open");
   };
 
   ham.addEventListener("click", toggleMenu);
-  ham.addEventListener("touchstart", toggleMenu);
+  ham.addEventListener("touchend", toggleMenu);
 
   document.querySelectorAll('#nav-sp a').forEach(link => {
-    const closeMenu = (e) => {
-      nav.classList.remove("open");
-    };
-    link.addEventListener('click', closeMenu);
-    link.addEventListener('touchstart', closeMenu);
+    const closeMenu = () => nav.classList.remove("open");
+    link.addEventListener("click", closeMenu);
+    link.addEventListener("touchend", closeMenu);
   });
 </script>
 
