@@ -233,19 +233,25 @@
   </div>
 </footer>
 
-<!-- ▼ ハンバーガー開閉JS（必ずここに置く） -->
+<!-- ▼ LINEブラウザ対応：touchstart 追加済みJS -->
 <script>
   const ham = document.getElementById("hamburger");
   const nav = document.getElementById("nav-sp");
 
-  ham.addEventListener("click", () => {
+  const toggleMenu = (e) => {
+    e.preventDefault();
     nav.classList.toggle("open");
-  });
+  };
+
+  ham.addEventListener("click", toggleMenu);
+  ham.addEventListener("touchstart", toggleMenu);
 
   document.querySelectorAll('#nav-sp a').forEach(link => {
-    link.addEventListener('click', () => {
+    const closeMenu = (e) => {
       nav.classList.remove("open");
-    });
+    };
+    link.addEventListener('click', closeMenu);
+    link.addEventListener('touchstart', closeMenu);
   });
 </script>
 
