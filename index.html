@@ -229,22 +229,19 @@
   </div>
 </footer>
 
-<!-- ▼ 最新：LINEブラウザでも確実に動くJS（touchend + click） -->
+<!-- ▼ 最終安定版：click のみ（スマホ・LINE でも確実に飛ぶ） -->
 <script>
   const ham = document.getElementById("hamburger");
   const nav = document.getElementById("nav-sp");
 
-  const toggleMenu = () => {
+  ham.addEventListener("click", () => {
     nav.classList.toggle("open");
-  };
-
-  ham.addEventListener("click", toggleMenu);
-  ham.addEventListener("touchend", toggleMenu);
+  });
 
   document.querySelectorAll('#nav-sp a').forEach(link => {
-    const closeMenu = () => nav.classList.remove("open");
-    link.addEventListener("click", closeMenu);
-    link.addEventListener("touchend", closeMenu);
+    link.addEventListener("click", () => {
+      nav.classList.remove("open");
+    });
   });
 </script>
 
