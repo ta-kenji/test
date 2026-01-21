@@ -44,8 +44,8 @@ section { scroll-margin-top: 120px; }
 
 .line-icon { width: 20px; height: 20px; }
 
-/* CONTACT用 ボタン配置ボックス */
-.contact-buttons-box {
+/* ボタン配置用共通ボックス設定 */
+.hero-buttons, .contact-buttons-box {
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -180,7 +180,6 @@ header {
   text-align: center;
 }
 
-/* 選ばれる理由とお悩み解決の画像を共通化 */
 .reason-photo, .problem-icon {
   width: 100%;
   border-radius: 10px;
@@ -217,7 +216,6 @@ header {
   box-shadow: 0 8px 18px rgba(0,0,0,.06);
   text-align: center;
 }
-/* 個別指定を解除して共通クラスに委ねる */
 .problem-text { font-size: 15px; color: #444; }
 .problem-solution-center {
   text-align: center;
@@ -336,7 +334,7 @@ header {
   color: var(--main);
 }
 
-/* MEDIA (v1.018 画像対応) */
+/* MEDIA */
 .media-box {
   display: grid;
   gap: 28px;
@@ -387,7 +385,6 @@ footer {
 
 /* RESPONSIVE */
 @media (max-width: 1024px) {
-  /* メディア項目のレスポンシブ */
   .media-item {
     flex-direction: column;
     text-align: center;
@@ -414,6 +411,9 @@ footer {
     max-width: 100%;
   }
 
+  /* 縦並び時のボタンスタイル統一 */
+  .hero-buttons .btn-primary,
+  .hero-buttons .btn-line,
   .contact-buttons-box .btn-primary,
   .contact-buttons-box .btn-line {
     max-width: 280px;
