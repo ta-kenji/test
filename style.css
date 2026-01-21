@@ -272,22 +272,52 @@ header {
   margin-bottom: 8px;
 }
 
-/* AREA */
-.area-inner {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 28px;
-  align-items: center;
+/* ▼ v1.013 追加：FLOW の画像 */
+.flow-photo {
+  width: 100%;
+  border-radius: 10px;
+  margin: 12px 0;
 }
-.area-map {
-  flex: 1 1 260px;
-  background: var(--light);
-  padding: 20px;
+
+/* AREA（v1.015 用） */
+.area-lead {
+  font-size: 15px;
+  color: #444;
+  margin-bottom: 24px;
+}
+
+.area-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.area-box {
+  background: #fff;
   border-radius: 12px;
-  text-align: center;
-  color: #555;
+  border: 1px solid var(--border);
+  padding: 18px 16px 20px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.04);
 }
-.area-list { flex: 1 1 320px; }
+
+.area-box h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: var(--main-dark);
+}
+
+.area-box ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.area-box li {
+  font-size: 14px;
+  color: #444;
+  line-height: 1.8;
+}
 
 /* CONTACT */
 .contact-container {
@@ -354,4 +384,23 @@ footer {
   text-align: center;
   font-size: 14px;
   color: #555;
+}
+
+/* ▼ v1.014 追加：1024px以下で「お急ぎの方へ」を中央揃え強化 */
+@media (max-width: 1024px) {
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .contact-phone a {
+    display: inline-block;
+  }
+
+  .btn-line2 {
+    max-width: 280px;
+    width: 100%;
+  }
 }
