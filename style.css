@@ -423,3 +423,22 @@ footer {
     justify-content: center;
   }
 }
+
+/* 追加バナーのスタイル */
+.section-banners {
+  padding: 40px 0;
+  background: #fff !important; /* 背景を白に固定 */
+}
+
+.banner-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cert-banner {
+  width: 100%;
+  max-width: 600px; /* PCでの最大サイズを制限 */
+  height: auto;
+  border-radius: 4px;
+}
