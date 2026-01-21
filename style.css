@@ -396,15 +396,20 @@ footer {
     
     /* 追加：親要素の中で幅いっぱいに広がるようにする */
     width: 100%; 
+    min-width: 0; /* 追加 */
     box-sizing: border-box; 
+    padding: 0 15px; /* 左右に少し遊びを作るとLINEで見やすくなります */
   }
 
   .contact-phone a {
     display: inline-block;
+    max-width: 100%; /* 追加：はみ出し防止 */
   }
 
   .btn-line2 {
     max-width: 280px;
     width: 100%;
+    margin: 0 auto; /* 中央寄せを確実に */
+    box-sizing: border-box;
   }
 }
