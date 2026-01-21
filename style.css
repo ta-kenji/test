@@ -44,21 +44,13 @@ section { scroll-margin-top: 120px; }
 
 .line-icon { width: 20px; height: 20px; }
 
-/* CONTACT用 LINEボタン */
-.btn-line2 {
-  display: block;
-  background: #00c300;
-  color: #fff;
-  padding: 16px 0;
-  text-align: center;
-  border-radius: 10px;
-  font-size: 18px;
-  font-weight: 700;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+/* CONTACT用 ボタン配置ボックス */
+.contact-buttons-box {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  gap: 12px;
+  margin: 20px 0;
   align-items: center;
-  gap: 8px;
 }
 
 /* HEADER */
@@ -124,7 +116,6 @@ header {
   border-top: 1px solid var(--border);
 }
 
-/* ▼ 最重要：スマホメニュー開閉 */
 .nav-sp.open {
   display: block !important;
 }
@@ -159,15 +150,6 @@ header {
   font-weight: 700;
   display: block;
   color: var(--main-dark);
-}
-.hero-badges .badge {
-  display: inline-block;
-  padding: 4px 10px;
-  border-radius: 999px;
-  background: #fff;
-  border: 1px solid var(--border);
-  margin-right: 6px;
-  font-size: 12px;
 }
 
 .hero-sub {
@@ -272,14 +254,13 @@ header {
   margin-bottom: 8px;
 }
 
-/* ▼ v1.013 追加：FLOW の画像 */
 .flow-photo {
   width: 100%;
   border-radius: 10px;
   margin: 12px 0;
 }
 
-/* AREA（v1.015 用） */
+/* AREA */
 .area-lead {
   font-size: 15px;
   color: #444;
@@ -340,7 +321,6 @@ header {
   font-size: 15px;
 }
 
-/* ▼ v1.011 追加：お急ぎの方へ中央揃え */
 .contact-info {
   text-align: center;
 }
@@ -351,7 +331,7 @@ header {
   color: var(--main);
 }
 
-/* ▼ v1.012 追加：メディア掲載 */
+/* MEDIA (v1.018 画像対応) */
 .media-box {
   display: grid;
   gap: 28px;
@@ -363,16 +343,30 @@ header {
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 6px 14px rgba(0,0,0,0.06);
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.media-img-wrap {
+  flex: 0 0 200px;
+}
+.media-img-wrap img {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.media-text-wrap {
+  flex: 1;
 }
 .media-item h3 {
   margin-top: 0;
   color: var(--main-dark);
-  font-size: 20px;
+  font-size: 18px;
   margin-bottom: 10px;
 }
 .media-item p {
   margin: 0;
-  font-size: 15px;
+  font-size: 14px;
   color: #444;
 }
 
@@ -386,30 +380,41 @@ footer {
   color: #555;
 }
 
-/* ▼ v1.014 追加：1024px以下で「お急ぎの方へ」を中央揃え強化 */
+/* RESPONSIVE */
 @media (max-width: 1024px) {
+  /* メディア項目のレスポンシブ */
+  .media-item {
+    flex-direction: column;
+    text-align: center;
+  }
+  .media-img-wrap {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 300px;
+  }
+
   .contact-info {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    
-    /* 追加：親要素の中で幅いっぱいに広がるようにする */
     width: 100%; 
-    min-width: 0; /* 追加 */
+    min-width: 0;
     box-sizing: border-box; 
-    padding: 0 15px; /* 左右に少し遊びを作るとLINEで見やすくなります */
+    padding: 0 15px;
   }
 
   .contact-phone a {
     display: inline-block;
-    max-width: 100%; /* 追加：はみ出し防止 */
+    max-width: 100%;
   }
 
-  .btn-line2 {
+  .contact-buttons-box .btn-primary,
+  .contact-buttons-box .btn-line {
     max-width: 280px;
     width: 100%;
-    margin: 0 auto; /* 中央寄せを確実に */
+    margin: 0 auto;
     box-sizing: border-box;
+    justify-content: center;
   }
 }
