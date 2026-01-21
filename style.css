@@ -166,7 +166,7 @@ header {
   color: var(--main);
 }
 
-/* REASON & SERVICE */
+/* REASON & SERVICE & PROBLEM 画像スタイル統一 */
 .reason-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -178,6 +178,15 @@ header {
   padding: 18px;
   border: 1px solid var(--border);
   text-align: center;
+}
+
+/* 選ばれる理由とお悩み解決の画像を共通化 */
+.reason-photo, .problem-icon {
+  width: 100%;
+  border-radius: 10px;
+  margin: 0 auto 12px;
+  display: block;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.08);
 }
 
 .service-image {
@@ -208,11 +217,7 @@ header {
   box-shadow: 0 8px 18px rgba(0,0,0,.06);
   text-align: center;
 }
-.problem-icon {
-  width: 100%;
-  max-width: 140px;
-  margin: 0 auto 12px;
-}
+/* 個別指定を解除して共通クラスに委ねる */
 .problem-text { font-size: 15px; color: #444; }
 .problem-solution-center {
   text-align: center;
