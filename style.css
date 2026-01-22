@@ -442,3 +442,40 @@ footer {
   height: auto;
   border-radius: 4px;
 }
+
+/* 施工事例のスタイル */
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.works-item {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.06);
+}
+
+.works-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.works-caption {
+  padding: 12px;
+  margin: 0;
+  font-weight: 600;
+  text-align: center;
+  color: var(--main-dark);
+  background: #fff;
+}
+
+/* スマホ対応：300px以下になる場合は1列にする */
+@media (max-width: 600px) {
+  .works-grid {
+    grid-template-columns: 1fr;
+  }
+}
