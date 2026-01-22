@@ -443,39 +443,55 @@ footer {
   border-radius: 4px;
 }
 
-/* 施工事例のスタイル */
+/* --- 施工事例のスタイル --- */
 .works-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
 }
 
 .works-item {
+  flex: 1 1 300px; /* LINEブラウザでのグリッド崩れ対策 */
+  max-width: 340px;
   background: #fff;
   border: 1px solid var(--border);
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 6px 14px rgba(0,0,0,0.06);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.works-img-container {
+  width: 100%;
+  aspect-ratio: 3 / 2; /* 画像の比率を固定してガタつきを防止 */
+  overflow: hidden;
 }
 
 .works-item img {
   width: 100%;
-  height: auto;
-  display: block;
+  height: 100%;
+  object-fit: cover; /* 画像を枠いっぱいに綺麗に収める */
 }
 
 .works-caption {
-  padding: 12px;
+  padding: 10px;
   margin: 0;
   font-weight: 600;
+  font-size: 14px;
   text-align: center;
   color: var(--main-dark);
-  background: #fff;
 }
 
-/* スマホ対応：300px以下になる場合は1列にする */
-@media (max-width: 600px) {
-  .works-grid {
-    grid-template-columns: 1fr;
+/* スマホ用調整 */
+@media (max-width: 768px) {
+  .works-item {
+    flex: 1 1 100%; /* スマホでは1枚ずつ大きく表示 */
+    max-width: 100%;
   }
+}
+
+/* LINEブラウザ等のキャッシュ・表示差異対策（汎用） */
+img {
+  image-rendering: -webkit-optimize-contrast; /* 画像を鮮明に */
+  -webkit-backface-visibility: hidden; /* チラつき防止 */
 }
