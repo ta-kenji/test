@@ -19,7 +19,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(255, 246, 248, 0.2);
+  background: rgba(255, 246, 248, 0.1);
   z-index: -1;
 }
 
@@ -39,17 +39,22 @@ a { text-decoration: none; }
 
 /* GLOBAL */
 .wrap { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
-.section { padding: 80px 0; border-bottom: 1px solid rgba(232, 201, 210, 0.3); }
+.section { padding: 80px 0; border-bottom: 1px solid rgba(232, 201, 210, 0.2); }
 
-/* 各セクションを半透明にして動画を透かす */
+/* 各セクションの透明度設定 */
 .section:nth-of-type(odd) {
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.4);
 }
 .section:nth-of-type(even) {
-  background: rgba(255, 246, 248, 0.85);
+  background: rgba(255, 246, 248, 0.4);
 }
 
-/* 飛び先が隠れないように */
+/* テキストの視認性確保のための光彩設定 */
+p, h1, h2, h3, li, label {
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+}
+
+/* 飛び先調整 */
 section { scroll-margin-top: 120px; }
 
 /* BUTTONS */
@@ -60,6 +65,7 @@ section { scroll-margin-top: 120px; }
   font-size: 15px;
   font-weight: 600;
   text-align: center;
+  text-shadow: none;
 }
 .btn-primary { background: var(--main); color: #fff; }
 .btn-primary:hover { background: var(--main-dark); }
@@ -83,7 +89,7 @@ section { scroll-margin-top: 120px; }
 
 /* HEADER */
 header {
-  background: #fff;
+  background: rgba(255, 255, 255, 0.9);
   border-bottom: 1px solid var(--border);
   position: sticky;
   top: 0;
@@ -108,6 +114,7 @@ header {
   color: var(--main-dark);
   font-weight: 600;
   padding: 8px 0;
+  text-shadow: none;
 }
 
 @media (max-width: 1024px) {
@@ -135,7 +142,7 @@ header {
 
 .nav-sp {
   display: none;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.95);
   border-top: 1px solid var(--border);
 }
 .nav-sp.open {
@@ -152,6 +159,7 @@ header {
   border-bottom: 1px solid var(--border);
   color: var(--main-dark);
   font-weight: 600;
+  text-shadow: none;
 }
 
 /* HERO */
@@ -180,7 +188,7 @@ header {
 
 .hero-sub {
   flex: 1 1 260px;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.8);
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 8px 18px rgba(0,0,0,.1);
@@ -190,6 +198,7 @@ header {
   font-size: 24px;
   font-weight: 700;
   color: var(--main);
+  text-shadow: none;
 }
 
 /* GRID & ITEMS */
@@ -198,13 +207,18 @@ header {
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 20px;
 }
-.reason-item {
-  background: #fff;
-  border-radius: 10px;
-  padding: 18px;
-  border: 1px solid var(--border);
-  text-align: center;
+/* 各カードの背景不透明度を 0.3 に統一 */
+.reason-item, .problem-item, .price-card, .works-item, .area-box, .media-item {
+  background: rgba(255, 255, 255, 0.3) !important;
+  border-radius: 12px;
+  border: 1px solid rgba(232, 201, 210, 0.4);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+  overflow: hidden;
+  backdrop-filter: blur(2px);
 }
+
+.reason-item { padding: 18px; text-align: center; }
+
 .reason-photo, .problem-icon, .service-image {
   width: 100%;
   border-radius: 10px;
@@ -213,12 +227,12 @@ header {
   box-shadow: 0 6px 14px rgba(0,0,0,0.08);
 }
 
-/* PROBLEM */
+/* PROBLEM (縁取りを削除して他と統一) */
 .problem-title h2 {
-  background: #fff;
-  display: inline-block;
-  padding: 6px 20px;
-  border-radius: 6px;
+  background: transparent; /* 背景色を削除 */
+  display: block;           /* セクションタイトルとして標準の扱いに */
+  padding: 0;               /* 余白をリセット */
+  border-radius: 0;         /* 角丸をリセット */
 }
 .problem-grid {
   display: grid;
@@ -227,11 +241,7 @@ header {
   margin-bottom: 20px;
 }
 .problem-item {
-  background: #fff;
-  border-radius: 12px;
   padding: 18px 16px 20px;
-  border: 1px solid var(--border);
-  box-shadow: 0 8px 18px rgba(0,0,0,.06);
   text-align: center;
 }
 .problem-solution-center {
@@ -248,9 +258,6 @@ header {
   gap: 16px;
 }
 .price-card {
-  background: #fff;
-  border: 1px solid var(--border);
-  border-radius: 10px;
   padding: 20px;
   text-align: center;
 }
@@ -264,6 +271,7 @@ header {
   font-size: 18px;
   font-weight: 700;
   color: var(--main);
+  text-shadow: none;
 }
 
 /* WORKS */
@@ -276,11 +284,6 @@ header {
 .works-item {
   flex: 1 1 300px;
   max-width: 340px;
-  background: #fff;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 .works-img-container {
   width: 100%;
@@ -308,11 +311,7 @@ header {
   margin-top: 20px;
 }
 .media-item {
-  background: #fff;
-  border: 1px solid var(--border);
   padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 6px 14px rgba(0,0,0,0.06);
   display: flex;
   gap: 20px;
   align-items: center;
@@ -357,11 +356,7 @@ header {
   gap: 24px;
 }
 .area-box {
-  background: #fff;
-  border-radius: 12px;
-  border: 1px solid var(--border);
   padding: 18px 16px 20px;
-  box-shadow: 0 6px 14px rgba(0,0,0,0.04);
 }
 .area-box h3 { margin: 0 0 10px; font-size: 18px; color: var(--main-dark); }
 .area-box ul { list-style: none; padding: 0; margin: 0; }
@@ -380,6 +375,7 @@ header {
   border: 1px solid var(--border);
   border-radius: 6px;
   font-size: 15px;
+  background: rgba(255, 255, 255, 0.6);
 }
 
 /* BANNERS */
@@ -389,7 +385,7 @@ header {
 
 /* FOOTER */
 footer {
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.7);
   border-top: 1px solid var(--border);
   padding: 20px 0;
   text-align: center;
