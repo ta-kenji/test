@@ -1,6 +1,31 @@
+/* 全体背景動画の固定設定 */
+.site-bg-video {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -2;
+  object-fit: cover;
+}
+
+/* 全体にかける薄いフィルター */
+.site-bg-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 246, 248, 0.2);
+  z-index: -1;
+}
+
 /* RESET */
 *, *::before, *::after { box-sizing: border-box; }
-body { margin: 0; font-family: "Noto Sans JP", sans-serif; line-height: 1.7; background: #fff6f8; color: #333; }
+body { margin: 0; font-family: "Noto Sans JP", sans-serif; line-height: 1.7; color: #333; }
 img { max-width: 100%; height: auto; display: block; }
 a { text-decoration: none; }
 
@@ -14,9 +39,15 @@ a { text-decoration: none; }
 
 /* GLOBAL */
 .wrap { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
-.section { padding: 60px 0; }
-.section:nth-of-type(odd) { background: #fff; }
-.section:nth-of-type(even) { background: #fff6f8; }
+.section { padding: 80px 0; border-bottom: 1px solid rgba(232, 201, 210, 0.3); }
+
+/* 各セクションを半透明にして動画を透かす */
+.section:nth-of-type(odd) {
+  background: rgba(255, 255, 255, 0.85);
+}
+.section:nth-of-type(even) {
+  background: rgba(255, 246, 248, 0.85);
+}
 
 /* 飛び先が隠れないように */
 section { scroll-margin-top: 120px; }
@@ -42,7 +73,6 @@ section { scroll-margin-top: 120px; }
 }
 .btn-line:hover { background: #00a600; }
 
-/* ボタン配置用共通ボックス設定 */
 .hero-buttons {
   display: flex;
   flex-direction: column;
@@ -67,7 +97,6 @@ header {
 }
 .logo img { height: 82px; }
 
-/* PCナビ */
 .nav-pc ul {
   display: flex;
   gap: 24px;
@@ -81,12 +110,10 @@ header {
   padding: 8px 0;
 }
 
-/* スマホではPCナビ非表示 */
 @media (max-width: 1024px) {
   .nav-pc { display: none; }
 }
 
-/* ハンバーガー */
 .hamburger {
   width: 28px;
   height: 22px;
@@ -102,22 +129,18 @@ header {
   border-radius: 3px;
 }
 
-/* スマホでハンバーガー表示 */
 @media (max-width: 1024px) {
   .hamburger { display: flex; }
 }
 
-/* スマホメニュー */
 .nav-sp {
   display: none;
   background: #fff;
   border-top: 1px solid var(--border);
 }
-
 .nav-sp.open {
   display: block !important;
 }
-
 .nav-sp ul {
   list-style: none;
   padding: 0;
@@ -133,10 +156,15 @@ header {
 
 /* HERO */
 .hero {
-  background: linear-gradient(120deg, #f7dce4, #f3b9c9);
-  padding: 60px 0;
+  background: transparent;
+  padding: 80px 0;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
 }
 .hero-inner {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-wrap: wrap;
   gap: 32px;
@@ -152,7 +180,7 @@ header {
 
 .hero-sub {
   flex: 1 1 260px;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.9);
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 8px 18px rgba(0,0,0,.1);
@@ -164,7 +192,7 @@ header {
   color: var(--main);
 }
 
-/* REASON & SERVICE & PROBLEM 画像スタイル統一 */
+/* GRID & ITEMS */
 .reason-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -177,8 +205,7 @@ header {
   border: 1px solid var(--border);
   text-align: center;
 }
-
-.reason-photo, .problem-icon {
+.reason-photo, .problem-icon, .service-image {
   width: 100%;
   border-radius: 10px;
   margin: 0 auto 12px;
@@ -186,14 +213,7 @@ header {
   box-shadow: 0 6px 14px rgba(0,0,0,0.08);
 }
 
-.service-image {
-  width: 100%;
-  border-radius: 10px;
-  box-shadow: 0 6px 14px rgba(0,0,0,0.08);
-}
-
 /* PROBLEM */
-.problem-section { background: #fdf2f5; }
 .problem-title h2 {
   background: #fff;
   display: inline-block;
@@ -214,7 +234,6 @@ header {
   box-shadow: 0 8px 18px rgba(0,0,0,.06);
   text-align: center;
 }
-.problem-text { font-size: 15px; color: #444; }
 .problem-solution-center {
   text-align: center;
   font-weight: 700;
@@ -247,7 +266,7 @@ header {
   color: var(--main);
 }
 
-/* WORKS (BEFORE/AFTER) */
+/* WORKS */
 .works-grid {
   display: flex;
   flex-wrap: wrap;
@@ -282,19 +301,6 @@ header {
   color: var(--main-dark);
 }
 
-/* FLOW */
-.flow-card .flow-num {
-  font-size: 26px;
-  font-weight: 700;
-  color: var(--main);
-  margin-bottom: 8px;
-}
-.flow-photo {
-  width: 100%;
-  border-radius: 10px;
-  margin: 12px 0;
-}
-
 /* MEDIA */
 .media-box {
   display: grid;
@@ -326,7 +332,7 @@ header {
 }
 .media-item p { margin: 0; font-size: 14px; color: #444; }
 
-/* AREA 地図対応 */
+/* AREA */
 .area-content {
   display: flex;
   flex-direction: column;
@@ -345,8 +351,6 @@ header {
 .area-text-side {
   text-align: center;
 }
-.area-lead { font-size: 15px; color: #444; }
-
 .area-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -359,8 +363,8 @@ header {
   padding: 18px 16px 20px;
   box-shadow: 0 6px 14px rgba(0,0,0,0.04);
 }
-.area-box h3 { margin-top: 0; margin-bottom: 10px; font-size: 18px; color: var(--main-dark); }
-.area-box ul { list-style: none; padding-left: 0; margin: 0; }
+.area-box h3 { margin: 0 0 10px; font-size: 18px; color: var(--main-dark); }
+.area-box ul { list-style: none; padding: 0; margin: 0; }
 .area-box li { font-size: 14px; color: #444; line-height: 1.8; }
 
 /* CONTACT */
@@ -379,13 +383,13 @@ header {
 }
 
 /* BANNERS */
-.section-banners { padding: 40px 0; background: #fff !important; }
+.section-banners { padding: 40px 0; background: transparent !important; }
 .banner-wrap { display: flex; justify-content: center; }
 .cert-banner { width: 100%; max-width: 600px; }
 
 /* FOOTER */
 footer {
-  background: #fff;
+  background: rgba(255, 255, 255, 0.9);
   border-top: 1px solid var(--border);
   padding: 20px 0;
   text-align: center;
@@ -395,27 +399,15 @@ footer {
 
 /* RESPONSIVE */
 @media (min-width: 1025px) {
-  .area-content {
-    flex-direction: row;
-    align-items: flex-start;
-  }
+  .area-content { flex-direction: row; align-items: flex-start; }
   .area-map-img { flex: 0 0 500px; }
   .area-text-side { flex: 1; text-align: left; }
 }
-
 @media (max-width: 1024px) {
   .media-item { flex-direction: column; text-align: center; }
-  .media-img-wrap { flex: 0 0 auto; width: 100%; max-width: 300px; }
-
-  .hero-buttons .btn-primary,
-  .hero-buttons .btn-line {
-    max-width: 280px;
-    width: 100%;
-    margin: 0 auto;
-    justify-content: center;
-  }
+  .media-img-wrap { width: 100%; max-width: 300px; }
+  .hero-buttons .btn-primary, .hero-buttons .btn-line { max-width: 280px; width: 100%; justify-content: center; }
 }
-
 @media (max-width: 768px) {
   .works-item { flex: 1 1 100%; max-width: 100%; }
 }
